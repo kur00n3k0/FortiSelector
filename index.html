@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FortiNet Product Selector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="logo-mark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="brand">
+      <h1>Forti<b>Net</b></h1>
+      <p>Product Selector</p>
+    </div>
+    <div class="top-spacer"></div>
+    <div class="product-switch">
+      <button class="prod-btn active" data-product="fortiswitch">FortiSwitch</button>
+      <button class="prod-btn" data-product="fortigate">FortiGate</button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== FORTISWITCH ==================== -->
+<div id="view-fortiswitch">
+
+  <div class="hero">
+    <h2>Encontre o switch <em>ideal</em> para sua arquitetura.</h2>
+    <p>Filtre os modelos FortiSwitch Campus Core e Data Center por série, mídia de porta, capacidade de comutação, PoE e recursos de segurança. Compare lado a lado e veja todas as especificações.</p>
+  </div>
+
+  <div class="layout">
+    <!-- ============ FILTROS FS ============ -->
+    <aside class="filters">
+      <div class="mode-switch">
+        <button class="mode-btn active" data-mode="simple">Modo simplificado</button>
+        <button class="mode-btn" data-mode="advanced">Modo avançado</button>
+      </div>
+
+      <div id="simplePanel">
+        <div class="wizard" id="wizard"></div>
+      </div>
+
+      <div id="advancedPanel" hidden>
+        <div class="filters-head">
+          <h3>Filtros</h3>
+          <button class="reset" id="resetBtn">Limpar tudo</button>
+        </div>
+
+        <div class="fgroup">
+          <div class="searchbox">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="search" placeholder="Buscar modelo ou SKU…">
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Série</label>
+          <label class="opt"><input type="checkbox" class="f-series" value="E"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Série E<span class="count" data-series="E"></span></label>
+          <label class="opt"><input type="checkbox" class="f-series" value="F"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Série F<span class="count" data-series="F"></span></label>
+          <label class="opt"><input type="checkbox" class="f-series" value="G"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Série G<span class="count" data-series="G"></span></label>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Mídia de porta</label>
+          <label class="opt"><input type="checkbox" class="f-media" value="sfpplus"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>SFP/SFP+ (1G/10G)</label>
+          <label class="opt"><input type="checkbox" class="f-media" value="sfp28"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>SFP28 (25G)</label>
+          <label class="opt"><input type="checkbox" class="f-media" value="baset"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>BASE-T (Multigig)</label>
+          <label class="opt"><input type="checkbox" class="f-media" value="qsfp28"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>QSFP28/QSFP+ (40G/100G)</label>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Capacidade de comutação (mín.)</label>
+          <div class="pills" id="capPills">
+            <div class="pill active" data-cap="0">Todas</div>
+            <div class="pill" data-cap="2160">≥ 2,16 Tbps</div>
+            <div class="pill" data-cap="4000">≥ 4 Tbps</div>
+            <div class="pill" data-cap="6440">≥ 6,44 Tbps</div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Recursos</label>
+          <label class="toggle" style="margin-bottom:10px"><input type="checkbox" id="f-poe"><span class="tr"></span>Somente com PoE</label>
+          <label class="toggle"><input type="checkbox" id="f-macsec"><span class="tr"></span>Somente com MACsec</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ RESULTADOS FS ============ -->
+    <main>
+      <div class="results-bar">
+        <div class="rcount"><b id="count">0</b> modelos encontrados</div>
+        <div class="sortwrap">
+          <span>Ordenar</span>
+          <select id="sort">
+            <option value="cap-desc">Capacidade (maior)</option>
+            <option value="cap-asc">Capacidade (menor)</option>
+            <option value="ports-desc">Densidade de portas</option>
+            <option value="name">Nome (A–Z)</option>
+          </select>
+        </div>
+      </div>
+      <div id="recoBanner"></div>
+      <div class="grid" id="grid"></div>
+    </main>
+  </div>
+
+</div><!-- /view-fortiswitch -->
+
+<!-- ==================== FORTIGATE ==================== -->
+<div id="view-fortigate" hidden>
+
+  <div class="hero">
+    <h2>Encontre o FortiGate <em>ideal</em> para sua rede.</h2>
+    <p>Filtre os modelos FortiGate por throughput de firewall e NGFW, capacidade de VPN, form factor e recursos de segurança avançada. Compare lado a lado e veja todas as especificações.</p>
+  </div>
+
+  <div class="layout">
+    <!-- ============ FILTROS FG ============ -->
+    <aside class="filters">
+      <div class="mode-switch">
+        <button class="fg-mode-btn active" data-mode="simple">Modo simplificado</button>
+        <button class="fg-mode-btn" data-mode="advanced">Modo avançado</button>
+      </div>
+
+      <div id="fg-simplePanel">
+        <div class="wizard" id="fg-wizard">
+          <div class="wiz-head"><h3>Assistente de seleção</h3><p>Responda e receba recomendações.</p></div>
+          <div class="wstep active">
+            <div class="wstep-q">Em breve</div>
+            <p style="padding:0 18px 16px;color:#9aa1ac;font-size:13px">O assistente FortiGate será habilitado quando os modelos forem adicionados ao banco de dados.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="fg-advancedPanel" hidden>
+        <div class="filters-head">
+          <h3>Filtros</h3>
+          <button class="reset" id="fg-resetBtn">Limpar tudo</button>
+        </div>
+
+        <div class="fgroup">
+          <div class="searchbox">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="fg-search" placeholder="Buscar modelo ou SKU…">
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Segmento</label>
+          <label class="opt"><input type="checkbox" class="fg-segment" value="entry"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Entry / SOHO<span class="count fg-count" data-segment="entry"></span></label>
+          <label class="opt"><input type="checkbox" class="fg-segment" value="smb"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>SMB / Mid-range<span class="count fg-count" data-segment="smb"></span></label>
+          <label class="opt"><input type="checkbox" class="fg-segment" value="enterprise"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Enterprise<span class="count fg-count" data-segment="enterprise"></span></label>
+          <label class="opt"><input type="checkbox" class="fg-segment" value="datacenter"><span class="box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>Data Center<span class="count fg-count" data-segment="datacenter"></span></label>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Throughput Firewall (mín.)</label>
+          <div class="pills" id="fg-fwPills">
+            <div class="pill active" data-fw="0">Todos</div>
+            <div class="pill" data-fw="10">≥ 10 Gbps</div>
+            <div class="pill" data-fw="40">≥ 40 Gbps</div>
+            <div class="pill" data-fw="100">≥ 100 Gbps</div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Throughput NGFW (mín.)</label>
+          <div class="pills" id="fg-ngfwPills">
+            <div class="pill active" data-ngfw="0">Todos</div>
+            <div class="pill" data-ngfw="1">≥ 1 Gbps</div>
+            <div class="pill" data-ngfw="10">≥ 10 Gbps</div>
+            <div class="pill" data-ngfw="30">≥ 30 Gbps</div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label class="flabel">Recursos</label>
+          <label class="toggle" style="margin-bottom:10px"><input type="checkbox" id="fg-f-ha"><span class="tr"></span>Suporte a HA</label>
+          <label class="toggle" style="margin-bottom:10px"><input type="checkbox" id="fg-f-sdwan"><span class="tr"></span>SD-WAN integrado</label>
+          <label class="toggle"><input type="checkbox" id="fg-f-wifi"><span class="tr"></span>Wi-Fi Controller integrado</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ RESULTADOS FG ============ -->
+    <main>
+      <div class="results-bar">
+        <div class="rcount"><b id="fg-count">0</b> modelos encontrados</div>
+        <div class="sortwrap">
+          <span>Ordenar</span>
+          <select id="fg-sort">
+            <option value="fw-desc">Throughput FW (maior)</option>
+            <option value="fw-asc">Throughput FW (menor)</option>
+            <option value="ngfw-desc">Throughput NGFW (maior)</option>
+            <option value="name">Nome (A–Z)</option>
+          </select>
+        </div>
+      </div>
+      <div id="fg-recoBanner"></div>
+      <div class="grid" id="fg-grid"></div>
+    </main>
+  </div>
+
+</div><!-- /view-fortigate -->
+
+<!-- ============ BARRA DE COMPARAÇÃO ============ -->
+<div class="cmpbar" id="cmpbar">
+  <div class="cmpbar-inner">
+    <span class="lbl">Comparar</span>
+    <div class="cmp-tags" id="cmpTags"></div>
+    <button class="btn-clear" id="cmpClear">limpar</button>
+    <button class="btn-compare" id="cmpGo">Comparar selecionados</button>
+  </div>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modalTitle">Detalhes</h3>
+      <button class="x" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <span id="footer-fs">Dados técnicos conforme datasheet FortiSwitch Campus Core and Data Center Series (FS-DC-DAT-R44-20260401). Recursos marcados com * exigem a licença <b>Advanced Features</b>.</span>
+  <span id="footer-fg" hidden>Dados técnicos conforme datasheets FortiGate. Imagens dos equipamentos a inserir manualmente.</span>
+</footer>
+
+<script type="module" src="src/js/main.js"></script>
+</body>
+</html>

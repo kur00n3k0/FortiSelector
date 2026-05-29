@@ -1,0 +1,25 @@
+{
+  "name": "forti-selector",
+  "version": "1.0.0",
+  "description": "FortiNet Product Selector — FortiSwitch e FortiGate",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "seed": "node db/seed.js",
+    "seed:fg": "node db/seed-fg.js",
+    "seed:all": "node db/seed.js && node db/seed-fg.js",
+    "start": "node server.js",
+    "setup": "npm run seed:all && npm start",
+    "lint": "eslint .",
+    "smoke": "node scripts/smoke-test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0"
+  }
+}
