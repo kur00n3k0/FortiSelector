@@ -37,7 +37,7 @@ node --version  # should print v22.x.x or higher
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FortiSelector.git
+git clone https://github.com/kur00n3k0/FortiSelector.git
 cd FortiSelector
 ```
 
