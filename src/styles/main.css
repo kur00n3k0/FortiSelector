@@ -390,14 +390,12 @@ table.cmp-table tbody th{
   text-transform:uppercase;letter-spacing:.5px;width:200px;
 }
 table.cmp-table td{font-family:'IBM Plex Mono';color:var(--ink)}
-table.cmp-table tr:hover td,table.cmp-table tr:hover th{background:#fff8f7}
 .yes{color:var(--ok);font-weight:700}
 .no{color:var(--muted-2)}
 .row-section td{background:var(--line-soft);font-family:'IBM Plex Sans';font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--red)}
 /* linhas com diferença */
 .cmp-table tr.row-diff > th{color:var(--red);border-left:3px solid var(--red);background:#fff8f7}
 .cmp-table tr.row-diff > td{background:#fff8f7}
-.cmp-table tr.row-diff:hover > td,.cmp-table tr.row-diff:hover > th{background:#fef0ee}
 
 footer.foot{max-width:1400px;margin:0 auto;padding:0 28px 60px;color:var(--muted-2);font-size:11.5px;text-align:center}
 footer.foot a{color:var(--red);text-decoration:none}
