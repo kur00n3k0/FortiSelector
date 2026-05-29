@@ -11,6 +11,7 @@ import { openFgDetail } from './modules/fg-detail.js';
 import { renderFgWizard, setFgWiz, jumpFgTo, fgWizReset, fgShowAll } from './modules/fg-wizard.js';
 import { loadFgModels } from './data/fg-models.js';
 import { renderFgCmpBar, openFgCompare } from './modules/fg-compare.js';
+import { initOnboarding } from './modules/onboarding.js';
 
 const $ = id => document.getElementById(id);
 const $$ = sel => [...document.querySelectorAll(sel)];
@@ -249,6 +250,7 @@ Promise.all([loadModels(), loadFgModels()]).then(() => {
   setMode("simple");
   setFgMode("simple");
   setProduct("fortiswitch");
+  initOnboarding();
 }).catch(err => {
   document.body.innerHTML = `<div style="padding:2rem;font-family:sans-serif;color:#c00"><b>Erro ao carregar dados:</b> ${err.message}</div>`;
 });
