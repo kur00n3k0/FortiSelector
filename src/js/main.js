@@ -12,6 +12,7 @@ import { renderFgWizard, setFgWiz, jumpFgTo, fgWizReset, fgShowAll } from './mod
 import { loadFgModels } from './data/fg-models.js';
 import { renderFgCmpBar, openFgCompare } from './modules/fg-compare.js';
 import { initOnboarding } from './modules/onboarding.js';
+import { toggleBom, openBomModal } from './modules/bom.js';
 
 const $ = id => document.getElementById(id);
 const $$ = sel => [...document.querySelectorAll(sel)];
@@ -74,6 +75,12 @@ $("grid").addEventListener("click", e => {
   if (e.target.id === "seeAll") { showAll(); return; }
   const d = e.target.closest("[data-detail]");
   if (d) { openDetail(d.dataset.detail); return; }
+  const b = e.target.closest("[data-bom]");
+  if (b && b.dataset.bomProduct === "fs") {
+    toggleBom("fs", { sku: b.dataset.bomSku, name: b.dataset.bomName, desc: b.dataset.bomDesc });
+    render();
+    return;
+  }
 });
 
 $("grid").addEventListener("change", e => {
@@ -160,6 +167,12 @@ $("fg-grid").addEventListener("click", e => {
   if (e.target.id === "fg-recoRestart"){ fgWizReset(); return; }
   const d = e.target.closest("[data-fg-detail]");
   if (d) { openFgDetail(d.dataset.fgDetail); return; }
+  const b = e.target.closest("[data-bom]");
+  if (b && b.dataset.bomProduct === "fg") {
+    toggleBom("fg", { sku: b.dataset.bomSku, name: b.dataset.bomName, desc: b.dataset.bomDesc });
+    renderFg();
+    return;
+  }
 });
 
 $("fg-grid").addEventListener("change", e => {
@@ -235,6 +248,9 @@ document.addEventListener("click", e => {
   if (chk) chk.checked = false;
   renderFgCmpBar();
 });
+
+// ── BoM ───────────────────────────────────────────────────────────────────
+$("bom-btn").addEventListener("click", openBomModal);
 
 // ── Modal ─────────────────────────────────────────────────────────────────
 $("modalClose").addEventListener("click", () => $("overlay").classList.remove("show"));

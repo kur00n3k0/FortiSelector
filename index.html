@@ -24,6 +24,11 @@
       <button class="prod-btn active" data-product="fortiswitch">FortiSwitch</button>
       <button class="prod-btn" data-product="fortigate">FortiGate</button>
     </div>
+    <button class="bom-header-btn" id="bom-btn" disabled>
+      <i class="fa-solid fa-file-excel"></i>
+      Gerar BoM
+      <span class="bom-badge" id="bom-count">0</span>
+    </button>
     <a class="gh-link" href="https://github.com/kur00n3k0/FortiSelector" target="_blank" rel="noopener noreferrer" title="Ver no GitHub"><i class="fa-brands fa-github"></i></a>
   </div>
 </header>
@@ -238,6 +243,7 @@
   <span id="footer-fg" hidden>Dados técnicos conforme datasheets FortiGate. Imagens dos equipamentos a inserir manualmente.</span>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script type="module" src="src/js/main.js"></script>
 </body>
 </html>

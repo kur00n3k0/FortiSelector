@@ -356,8 +356,8 @@ aside.filters{
   justify-content:space-between;gap:16px;border-bottom:3px solid var(--red);
 }
 .modal-head h3{font-family:'Archivo';font-weight:800;font-size:22px}
-.modal-head .x{background:#2a2e38;border:none;color:#fff;width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:18px;flex:0 0 auto}
-.modal-head .x:hover{background:var(--red)}
+.modal-head .x,.bom-modal-head .x{background:#2a2e38;border:none;color:#fff;width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:18px;flex:0 0 auto}
+.modal-head .x:hover,.bom-modal-head .x:hover{background:var(--red)}
 .modal-body{padding:24px 28px;max-height:70vh;overflow-y:auto}
 
 /* detail single */
@@ -419,6 +419,81 @@ footer.foot a{color:var(--red);text-decoration:none}
   aside.filters{position:static}
   .hero h2{font-size:26px}
 }
+
+/* ---- BOM ---- */
+.bom-header-btn{
+  display:flex;align-items:center;gap:7px;
+  background:#166534;color:#fff;border:none;border-radius:8px;
+  padding:7px 14px;font-family:'IBM Plex Sans',sans-serif;
+  font-weight:600;font-size:12.5px;cursor:pointer;
+  transition:background .15s;white-space:nowrap;
+}
+.bom-header-btn:hover:not(:disabled){background:#15803d}
+.bom-header-btn:disabled{background:rgba(255,255,255,.07);color:#4a5568;cursor:not-allowed;border:1px solid rgba(255,255,255,.1)}
+.bom-badge{
+  background:#fff;color:#166534;border-radius:999px;
+  font-size:11px;font-weight:700;padding:1px 6px;min-width:18px;text-align:center;
+}
+.btn-bom{
+  background:none;border:1.5px solid var(--line);border-radius:7px;
+  color:var(--muted-2);width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:.15s;flex-shrink:0;font-size:13px;padding:0;
+}
+.btn-bom:hover{border-color:#16a34a;color:#16a34a}
+.btn-bom.bom-active{background:#dcfce7;border-color:#16a34a;color:#16a34a}
+#bom-overlay{
+  position:fixed;inset:0;background:rgba(22,25,31,.60);
+  z-index:9000;display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.bom-modal{
+  background:#fff;border-radius:16px;max-width:780px;width:100%;max-height:80vh;
+  display:flex;flex-direction:column;box-shadow:var(--shadow-lg);
+}
+.bom-modal-head{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:22px 24px 16px;border-bottom:1px solid var(--line);
+}
+.bom-modal-head h3{font-family:'Archivo',sans-serif;font-size:18px;font-weight:800;color:var(--ink)}
+.bom-modal-head p{font-size:12.5px;color:var(--muted);margin-top:3px}
+.bom-modal-body{overflow-y:auto;flex:1}
+.bom-table{width:100%;border-collapse:collapse}
+.bom-table thead th{
+  background:var(--ink);color:#fff;font-family:'Archivo',sans-serif;
+  font-size:12px;font-weight:700;padding:10px 16px;text-align:left;position:sticky;top:0;
+}
+.bom-table tbody tr{border-bottom:1px solid var(--line-soft)}
+.bom-table tbody tr:hover{background:#fafafa}
+.bom-table td{padding:10px 16px;font-size:13.5px;color:var(--ink)}
+.bom-qty{
+  width:64px;border:1.5px solid var(--line);border-radius:6px;
+  padding:5px 8px;font-size:13px;font-family:'IBM Plex Mono',monospace;
+  text-align:center;color:var(--ink);
+}
+.bom-qty:focus{outline:none;border-color:#16a34a}
+.bom-sku-cell{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--red);font-weight:500}
+.bom-desc-cell{font-size:13px;color:var(--ink-soft)}
+.bom-rm{
+  background:none;border:none;color:var(--muted-2);cursor:pointer;
+  font-size:13px;padding:4px 6px;border-radius:4px;transition:.15s;
+}
+.bom-rm:hover{color:var(--red);background:#fef2f2}
+.bom-modal-foot{
+  padding:16px 24px;border-top:1px solid var(--line);
+  display:flex;justify-content:flex-end;gap:10px;
+}
+.bom-cancel{
+  background:none;border:1.5px solid var(--line);border-radius:8px;
+  padding:9px 18px;font-size:13px;font-family:'IBM Plex Sans',sans-serif;
+  color:var(--ink-soft);cursor:pointer;transition:.15s;
+}
+.bom-cancel:hover{border-color:var(--ink-soft);color:var(--ink)}
+.bom-export{
+  background:#166534;color:#fff;border:none;border-radius:8px;
+  padding:9px 18px;font-size:13px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;
+  cursor:pointer;display:flex;align-items:center;gap:7px;transition:background .15s;
+}
+.bom-export:hover{background:#15803d}
 
 /* ---- ONBOARDING ---- */
 #ob-spotlight-hole{

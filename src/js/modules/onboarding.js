@@ -45,6 +45,14 @@ const STEPS = [
     body: 'Quando você marca 2 ou mais modelos, esta barra aparece. Clique em <b>Comparar selecionados</b> para abrir uma tabela técnica completa com diferenças destacadas automaticamente.',
     forceShow: true,
   },
+  {
+    type: 'spotlight',
+    targetSelector: '#bom-btn',
+    tooltipPosition: 'below',
+    borderRadius: '8px',
+    title: 'Gerar BoM',
+    body: 'Adicione modelos ao orçamento clicando no ícone de carrinho em cada card. Quando sua seleção estiver pronta, clique em <b>Gerar BoM</b> para confirmar as quantidades e exportar uma planilha Excel.',
+  },
 ];
 
 let currentStep = 0;

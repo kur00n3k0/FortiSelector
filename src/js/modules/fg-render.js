@@ -1,5 +1,6 @@
 import { fgState, $, $$, fwLabel, sessLabel } from './fg-state.js';
 import { FG_MODELS } from '../data/fg-models.js';
+import { isInBom } from './bom.js';
 
 const SEGMENT_LABEL = { entry:"Entry / SOHO", smb:"SMB", enterprise:"Enterprise", datacenter:"Data Center" };
 
@@ -73,6 +74,8 @@ export function renderFg() {
     card.className = "card";
     card.style.animationDelay = (i * 0.04) + "s";
     const checked = fgState.compare.includes(m.id) ? "checked" : "";
+    const inBom = isInBom('fg', m.sku);
+    const safeDesc = (m.interfaces || '').replace(/"/g, '&quot;');
     const sslRow = m.ssl_vpn_gbps
       ? `<div class="srow"><span>SSL VPN</span><b>${m.ssl_vpn_gbps.toLocaleString('pt-BR')} Gbps</b></div>`
       : `<div class="srow"><span>SSL VPN</span><b style="color:var(--muted-2)">—</b></div>`;
@@ -102,6 +105,12 @@ export function renderFg() {
         </div>
         <div class="card-foot">
           <button class="btn-detail" data-fg-detail="${m.id}">Ver detalhes</button>
+          <button class="btn-bom ${inBom ? 'bom-active' : ''}"
+                  data-bom="${m.id}" data-bom-product="fg"
+                  data-bom-name="${m.name}" data-bom-sku="${m.sku}" data-bom-desc="${safeDesc}"
+                  title="${inBom ? 'Remover do BoM' : 'Adicionar ao BoM'}">
+            <i class="fa-solid ${inBom ? 'fa-circle-minus' : 'fa-cart-plus'}"></i>
+          </button>
           <label class="cmp">
             <input type="checkbox" class="fg-cmp-check" data-id="${m.id}" ${checked}>
             <span class="cbox"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg></span>
